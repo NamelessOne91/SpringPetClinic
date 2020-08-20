@@ -1,4 +1,4 @@
-package it.ttf.invernizzi.petclinic.servicesc;
+package it.ttf.invernizzi.petclinic.services;
 
 import it.ttf.invernizzi.petclinic.model.Owner;
 
