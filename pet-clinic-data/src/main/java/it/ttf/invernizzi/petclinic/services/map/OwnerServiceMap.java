@@ -1,11 +1,11 @@
 package it.ttf.invernizzi.petclinic.services.map;
 
 import it.ttf.invernizzi.petclinic.model.Owner;
-import it.ttf.invernizzi.petclinic.services.CrudService;
+import it.ttf.invernizzi.petclinic.services.OwnerService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findall() {
         return super.findAll();
@@ -29,5 +29,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 }

@@ -1,11 +1,11 @@
 package it.ttf.invernizzi.petclinic.services.map;
 
 import it.ttf.invernizzi.petclinic.model.Vet;
-import it.ttf.invernizzi.petclinic.services.CrudService;
+import it.ttf.invernizzi.petclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findall() {
         return super.findAll();
