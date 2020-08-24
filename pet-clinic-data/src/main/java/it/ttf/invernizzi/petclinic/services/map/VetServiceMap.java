@@ -1,12 +1,21 @@
 package it.ttf.invernizzi.petclinic.services.map;
 
+import it.ttf.invernizzi.petclinic.model.Speciality;
 import it.ttf.invernizzi.petclinic.model.Vet;
+import it.ttf.invernizzi.petclinic.services.SpecialityService;
 import it.ttf.invernizzi.petclinic.services.VetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialityService specialityService;
+
+    public VetServiceMap(SpecialityService specialityService) {
+        this.specialityService = specialityService;
+    }
+
     @Override
     public Set<Vet> findall() {
         return super.findAll();
@@ -19,6 +28,14 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet obj) {
+        if (obj.getSpecialities().size() > 0) {
+            obj.getSpecialities().forEach( speciality -> {
+                if(speciality.getId() == null) {
+                    Speciality savedSpeciality = specialityService.save(speciality);
+                    speciality.setId(savedSpeciality.getId());
+                }
+            });
+        }
         return super.save(obj);
     }
 
