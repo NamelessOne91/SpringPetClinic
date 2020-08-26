@@ -2,9 +2,11 @@ package it.ttf.invernizzi.petclinic.services.map;
 
 import it.ttf.invernizzi.petclinic.model.Visit;
 import it.ttf.invernizzi.petclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override
