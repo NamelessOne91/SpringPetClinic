@@ -2,11 +2,13 @@ package it.ttf.invernizzi.petclinic.services.map;
 
 import it.ttf.invernizzi.petclinic.model.Visit;
 import it.ttf.invernizzi.petclinic.services.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override

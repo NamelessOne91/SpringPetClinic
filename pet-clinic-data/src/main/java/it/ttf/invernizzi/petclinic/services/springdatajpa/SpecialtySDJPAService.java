@@ -1,8 +1,8 @@
 package it.ttf.invernizzi.petclinic.services.springdatajpa;
 
-import it.ttf.invernizzi.petclinic.model.Vet;
-import it.ttf.invernizzi.petclinic.repositories.VetRepository;
-import it.ttf.invernizzi.petclinic.services.VetService;
+import it.ttf.invernizzi.petclinic.model.Speciality;
+import it.ttf.invernizzi.petclinic.repositories.SpecialityRepository;
+import it.ttf.invernizzi.petclinic.services.SpecialityService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -11,39 +11,39 @@ import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
-public class SpecialtySDJPAService implements VetService {
+public class SpecialtySDJPAService implements SpecialityService {
 
-    private final VetRepository vetRepository;
+    private final SpecialityRepository specialityRepository;
 
-    public SpecialtySDJPAService(VetRepository vetRepository) {
-        this.vetRepository = vetRepository;
+    public SpecialtySDJPAService(SpecialityRepository specialityRepository) {
+        this.specialityRepository = specialityRepository;
     }
 
 
     @Override
-    public Set<Vet> findall() {
-        Set<Vet> vets = new HashSet<>();
-        vetRepository.findAll().forEach(vets::add);
-        return vets;
+    public Set<Speciality> findall() {
+        Set<Speciality> specs = new HashSet<>();
+        specialityRepository.findAll().forEach(specs::add);
+        return specs;
     }
 
     @Override
-    public Vet findById(Long aLong) {
-        return vetRepository.findById(aLong).orElse(null);
+    public Speciality findById(Long aLong) {
+        return specialityRepository.findById(aLong).orElse(null);
     }
 
     @Override
-    public Vet save(Vet obj) {
-        return vetRepository.save(obj);
+    public Speciality save(Speciality obj) {
+        return specialityRepository.save(obj);
     }
 
     @Override
-    public void delete(Vet obj) {
-        vetRepository.delete(obj);
+    public void delete(Speciality obj) {
+        specialityRepository.delete(obj);
     }
 
     @Override
     public void deleteById(Long aLong) {
-        vetRepository.deleteById(aLong);
+        specialityRepository.deleteById(aLong);
     }
 }
