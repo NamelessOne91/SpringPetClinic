@@ -1,13 +1,15 @@
 package it.ttf.invernizzi.petclinic.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -17,5 +19,4 @@ public class Speciality extends BaseEntity{
 
     @Column(name = "description")
     private String description;
-
 }
